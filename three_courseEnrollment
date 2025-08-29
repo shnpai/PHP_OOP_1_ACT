@@ -1,0 +1,46 @@
+<?php
+class Student {
+    public $name;
+    public $courses = array();
+    public $courseFee = 2405;
+
+    public function __construct($name) {
+        $this->name = $name;
+    }
+
+    public function addCourse($course) {
+        $this->courses[] = $course;
+    }
+
+    public function deleteCourse($course) {
+        $key = array_search($course, $this->courses);
+        if ($key !== false) {
+            unset($this->courses[$key]);
+        }
+    }
+
+    public function getTotalFee() {
+        return count($this->courses) * $this->courseFee;
+    }
+
+    public function showCourses() {
+        return implode(", ", $this->courses);
+    }
+}
+
+
+$student1 = new Student("Shane Ignacio");
+
+
+$student1->addCourse("Data Analysis");
+$student1->addCourse("OOP");
+$student1->addCourse("Calculus");
+
+
+$student1->deleteCourse("OOP");
+
+
+echo "Student: " . $student1->name . "<br>";
+echo "Enrolled Courses: " . $student1->showCourses() . "<br>";
+echo "Total Fee: " . $student1->getTotalFee() . " PHP";
+?>
