@@ -23,7 +23,7 @@ class QuadraticEquation {
     }
 }
 
-$eq = new QuadraticEquation(1, -3, 2); // x^2 - 3x + 2 = 0
+$eq = new QuadraticEquation(1, -3, 2); 
 
 echo "Discriminant: " . $eq->getDiscriminant() . "<br>";
 echo "Root 1: " . $eq->getRoot1() . "<br>";
